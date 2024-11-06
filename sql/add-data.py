@@ -32,3 +32,8 @@ while time_iter < now_time:
 		idx = 0
 
 if len(rows) > 0:
+	cursor.execute(insert_query_stmt.format(','.join(list(map(lambda x: x.__str__(), rows)))))
+
+cursor.execute('COMMIT')
+cursor.close()
+cnx.close()
